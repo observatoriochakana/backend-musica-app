@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial; padding: 20px;">
+    <h2>Subir Instrumento al Backend</h2>
+    <input type="file" id="archivo" accept=".sf2">
+    <button onclick="subir()">Subir al Servidor</button>
+    <p id="mensaje" style="color: green; font-weight: bold;"></p>
+
+    <script>
+        async function subir() {
+            const fileInput = document.getElementById('archivo');
+            const file = fileInput.files[0];
+            if (!file) return alert("Selecciona un archivo .sf2 primero");
+
+            const formData = new FormData();
+            formData.append('archivo', file);
+
+            try {
+                const res = await fetch('http://localhost:3001/subir-instrumento', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                document.getElementById('mensaje').innerText = "¡Éxito! " + data.mensaje;
+            } catch (error) {
+                document.getElementById('mensaje').innerText = "Error al conectar con el servidor.";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
