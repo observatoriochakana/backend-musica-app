@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // 1. Habilitar CORS
-app.use(cors());
+app.use(cors({
+    origin: 'https://mi-app-musical-frontend.vercel.app'
+}));
 
 // 2. Crear automáticamente la carpeta "instrumentos" si no existe
 const carpetaInstrumentos = path.join(__dirname, 'instrumentos');
