@@ -1,21 +1,14 @@
 {
-  "name": "backend-musica",
+  "name": "backend-musica-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Backend para mi app de instrumentos",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
-}
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.3.0",
-    "multer": "^2.5.0"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
   }
 }
